@@ -1,7 +1,7 @@
 
 # Dynamic ReactJS Navigation Bar
 Bootstrap Navigation bar rebuilt with React components. Written in ECMAScript 6 (ES6).
-No external stylesheets! This navigation bar is built with [Radium](http://projects.formidablelabs.com/radium/) inline styling. 
+No external stylesheets! This navigation bar is built with [Radium](http://projects.formidablelabs.com/radium/) inline styling.
 
 ### Desktop View
 
@@ -27,9 +27,9 @@ const navbar = (
     <Navbar>
         <NavbarHeader href="homepage.html" name="Website Name"/>
         <NavbarItems>
-            <Item link="about.html" title="About" />
-            <Item link="contact.html" title="Contact" />
-            <Item link="services.html" title="Services" />
+            <NavbarItem link="about.html" title="About" />
+            <NavbarItem link="contact.html" title="Contact" />
+            <NavbarItem link="services.html" title="Services" />
             <NavbarDropdown name="Features">
                   <DropdownMenu menuItems={dropdownItems}/>
             </NavbarDropdown>
@@ -50,7 +50,4 @@ npm install
 ```js
 npm start
 ```
-Go to http://localhost:8080/ on your favorite browser to view the Navigation bar. 
-
-
-
+Go to http://localhost:8080/ on your favorite browser to view the Navigation bar.
