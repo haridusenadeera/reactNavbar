@@ -33,6 +33,7 @@
   "dependencies": {
     "path-is-absolute": "^1.0.0",
     "radium": "^0.13.4",
-    "react": "^0.13.3"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }

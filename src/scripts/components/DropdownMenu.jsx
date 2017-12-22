@@ -85,6 +85,15 @@ export default class DropdownMenu extends React.Component {
         return styles;
     }
 
+    clickHandler(event, item) {
+        if (typeof(item.onClick) !== 'undefined') {
+            event.preventDefault();
+            item.onClick(item);
+            return false;
+        }
+        return true;
+    }
+
     render() {
         const defStyle = this.getStyles();
         const {menuItems, style, menuItemStyle} = this.props;
@@ -94,7 +103,7 @@ export default class DropdownMenu extends React.Component {
                   return (
                     <li key={menuItems.indexOf(item)}>
                         <a key={item.name} style={[defStyle.link, menuItemStyle && menuItemStyle]}
-                            href={item.href}>{item.name}
+                            onClick={(event) => { return this.clickHandler(event, item); }} href={item.href}>{item.name}
                         </a>
                     </li>
                   );

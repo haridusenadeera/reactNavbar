@@ -6,6 +6,7 @@ export default class NavItem extends React.Component {
     displayName = 'Navigation bar item'
 
     static propTypes = {
+        onClick: React.PropTypes.func,
         link:  React.PropTypes.string,
         title: React.PropTypes.string,
         style: React.PropTypes.object,
@@ -54,12 +55,21 @@ export default class NavItem extends React.Component {
         };
     }
 
+    clickHandler(event) {
+        if (typeof(this.props.onClick) !== 'undefined') {
+            event.preventDefault();
+            this.props.onClick();
+            return false;
+        }
+        return true;
+    }
+
     render() {
         const defStyle = this.getStyles();
         const {style, link, title, itemStyle} = this.props;
         return (
           <li ref="list" style={[defStyle.base, style && style]}>
-              <a ref="link" href={link} style={[defStyle.link, itemStyle && itemStyle]}>{title}</a>
+              <a ref="link" onClick={(event) => { return this.clickHandler(event); }} href={link} style={[defStyle.link, itemStyle && itemStyle]}>{title}</a>
           </li>
         );
     }
